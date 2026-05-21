@@ -31,8 +31,8 @@ class IssueTracker:
         return issue
 
     def search(self, text: str) -> list[Issue]:
-        needle = text.strip()
-        return [issue for issue in self._issues if needle in issue.title]
+        needle = text.strip().lower()
+        return [issue for issue in self._issues if needle in issue.title.lower()]
 
     def next_issue(self) -> Issue | None:
         open_issues = self.list_open()
